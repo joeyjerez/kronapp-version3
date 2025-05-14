@@ -5,11 +5,11 @@
 @layer components {
   /* Estilos para tarjetas de videos */
   .video-card {
-    @apply transition-all duration-200 hover:shadow-md;
+    @apply transition-all duration-200 hover:shadow-md border border-gray-200;
   }
   
   .video-thumbnail {
-    @apply aspect-video bg-gray-100 relative flex items-center justify-center;
+    @apply aspect-video bg-[#F8F9FA] relative flex items-center justify-center;
   }
   
   .video-play-button {
@@ -22,7 +22,23 @@
   }
   
   .video-title {
-    @apply text-xl md:text-2xl font-bold text-center text-[#1E4E94] px-4;
+    @apply text-xl md:text-2xl font-bold text-center text-[#1E4E94] px-4 uppercase;
+  }
+  
+  .youtube-bar {
+    @apply mt-4 py-1.5 px-2 bg-gray-100 rounded flex items-center hover:bg-gray-200 transition-colors cursor-pointer;
+  }
+  
+  .youtube-icon {
+    @apply inline-block bg-white p-1 rounded mr-2 shadow-sm;
+  }
+  
+  .youtube-text {
+    @apply text-xs text-gray-700 font-medium;
+  }
+  
+  .heart-icon {
+    @apply bg-white rounded-full p-1.5 shadow-sm text-red-500;
   }
 }
 

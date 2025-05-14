@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "wouter";
 import {
   LineChart,
   Line,
@@ -290,13 +291,13 @@ export default function PatientProfileNew() {
 
         <h3 className="px-4 text-xs font-medium text-[--gray-medium] uppercase tracking-wider mb-2">Módulos Educativos</h3>
         <nav className="space-y-1">
-          <a href="#" className="flex items-center py-2 px-4 text-sm text-[--black-soft] rounded-md hover:bg-white hover:shadow-sm transition-all">
+          <Link href="/educational-videos" className="flex items-center py-2 px-4 text-sm text-[--black-soft] rounded-md hover:bg-white hover:shadow-sm transition-all">
             <svg className="mr-3 h-5 w-5 text-[--cyan-info]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
             Videos Educativos
-          </a>
+          </Link>
         </nav>
       </div>
 

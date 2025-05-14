@@ -147,14 +147,13 @@ export default function EducationalVideos() {
                   {/* Miniatura del video con corazón y botón de reproducción */}
                   <div className="video-thumbnail">
                     <div className="absolute top-2 left-2">
-                      <div className="bg-white rounded-full p-1.5 shadow-sm">
+                      <div className="heart-icon">
                         <svg 
                           width="16" 
                           height="16" 
                           viewBox="0 0 24 24" 
                           fill="none" 
                           xmlns="http://www.w3.org/2000/svg"
-                          className="text-red-500"
                         >
                           <path 
                             d="M8 3.5C5.2 3.5 3 5.7 3 8.5C3 12 5.5 15 12 20.5C18.5 15 21 12 21 8.5C21 5.7 18.8 3.5 16 3.5C14.3 3.5 12.9 4.3 12 5.5C11.1 4.3 9.7 3.5 8 3.5Z" 
@@ -201,13 +200,13 @@ export default function EducationalVideos() {
                     <p className="text-sm text-muted-foreground">{video.subtitle}</p>
                     
                     {/* Barra de Youtube */}
-                    <div className="mt-4 py-1.5 px-2 bg-gray-100 rounded flex items-center">
-                      <span className="inline-block bg-white p-1 rounded mr-2">
+                    <div className="youtube-bar">
+                      <span className="youtube-icon">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" fill="#FF0000"/>
                         </svg>
                       </span>
-                      <span className="text-xs">Ver en YouTube</span>
+                      <span className="youtube-text">Ver en YouTube</span>
                     </div>
                   </div>
                 </div>
