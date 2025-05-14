@@ -176,14 +176,14 @@ export default function DiabetesModule() {
 
         <h3 className="px-4 text-xs font-medium text-[--gray-medium] uppercase tracking-wider mb-2">Módulos Educativos</h3>
         <nav className="space-y-1">
-          <a href="#" className="flex items-center py-2 px-4 text-sm text-[--gray-medium] rounded-md hover:bg-[--blue-light] hover:text-[--blue-main] transition-colors">
+          <Link href="/educational-videos" className="flex items-center py-2 px-4 text-sm text-[--gray-medium] rounded-md hover:bg-[--blue-light] hover:text-[--blue-main] transition-colors">
             <svg className="mr-3 h-5 w-5 text-[--gray-medium]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m7 18 5-3 5 3"></path>
               <path d="M7 6v12"></path>
               <rect x="3" y="6" width="18" height="12" rx="2" ry="2"></rect>
             </svg>
             Videos Educativos
-          </a>
+          </Link>
         </nav>
       </div>
 

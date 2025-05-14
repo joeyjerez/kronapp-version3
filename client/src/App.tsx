@@ -5,6 +5,7 @@ import PatientProfile from "@/pages/patient-profile";
 import PatientProfileNew from "@/pages/patient-profile-new";
 import DiabetesModule from "@/pages/diabetes-module";
 import HypertensionModule from "@/pages/hypertension-module";
+import EducationalVideos from "@/pages/educational-videos";
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/patient-profile-new" component={PatientProfileNew} />
       <Route path="/diabetes" component={DiabetesModule} />
       <Route path="/hypertension" component={HypertensionModule} />
+      <Route path="/educational-videos" component={EducationalVideos} />
       <Route component={NotFound} />
     </Switch>
   );
