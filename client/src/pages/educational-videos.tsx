@@ -181,17 +181,7 @@ export default function EducationalVideos() {
                       </svg>
                     </div>
                     
-                    {/* Texto superpuesto */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <h2 className="video-title">
-                        {video.thumbnail === 'actividad-fisica' && "ACTIVIDAD FÍSICA"}
-                        {video.thumbnail === 'administracion-insulina' && "ADMINISTRACIÓN DE INSULINA"}
-                        {video.thumbnail === 'plan-alimentacion' && "PLAN DE ALIMENTACIÓN"}
-                        {video.thumbnail === 'hemoglutest' && "HEMOGLUTEST"}
-                        {video.thumbnail === 'manejo-heridas' && "MANEJO DE HERIDAS"}
-                        {video.thumbnail === 'eliminacion-material' && "MANEJO Y ELIMINACIÓN DE MATERIAL CORTOPUNZANTE"}
-                      </h2>
-                    </div>
+                    {/* Sin texto superpuesto */}
                   </div>
 
                   {/* Detalles del video */}
