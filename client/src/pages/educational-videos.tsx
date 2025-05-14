@@ -141,11 +141,11 @@ export default function EducationalVideos() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {videos.map((video) => (
-            <Card key={video.id} className="overflow-hidden">
+            <Card key={video.id} className="overflow-hidden video-card">
               <CardContent className="p-0">
                 <div className="relative">
                   {/* Miniatura del video con corazón y botón de reproducción */}
-                  <div className="bg-gray-100 aspect-video relative flex items-center justify-center">
+                  <div className="video-thumbnail">
                     <div className="absolute top-2 left-2">
                       <div className="bg-white rounded-full p-1.5 shadow-sm">
                         <svg 
@@ -165,7 +165,7 @@ export default function EducationalVideos() {
                     </div>
                     
                     {/* Botón de reproducción central */}
-                    <div className="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                    <div className="video-play-button">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="24" 
@@ -184,7 +184,7 @@ export default function EducationalVideos() {
                     
                     {/* Texto superpuesto */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <h2 className="text-xl md:text-2xl font-bold text-center text-[#1E4E94] px-4">
+                      <h2 className="video-title">
                         {video.thumbnail === 'actividad-fisica' && "ACTIVIDAD FÍSICA"}
                         {video.thumbnail === 'administracion-insulina' && "ADMINISTRACIÓN DE INSULINA"}
                         {video.thumbnail === 'plan-alimentacion' && "PLAN DE ALIMENTACIÓN"}

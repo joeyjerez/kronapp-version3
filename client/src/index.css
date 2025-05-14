@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Estilos para tarjetas de videos */
+  .video-card {
+    @apply transition-all duration-200 hover:shadow-md;
+  }
+  
+  .video-thumbnail {
+    @apply aspect-video bg-gray-100 relative flex items-center justify-center;
+  }
+  
+  .video-play-button {
+    @apply h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg 
+           transition-transform duration-200;
+  }
+  
+  .video-card:hover .video-play-button {
+    @apply transform scale-110;
+  }
+  
+  .video-title {
+    @apply text-xl md:text-2xl font-bold text-center text-[#1E4E94] px-4;
+  }
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 210 11% 15%; /* Negro Suave - #212529 */
