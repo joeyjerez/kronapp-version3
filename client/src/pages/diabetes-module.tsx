@@ -225,16 +225,22 @@ export default function DiabetesModule() {
 
           <a href="/diabetes" className="flex items-center py-2 px-4 text-sm bg-[--blue-main] text-white font-medium rounded-md shadow-sm">
             <svg className="mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 10v12"></path>
-              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              <path d="M2 12h20"/>
+              <path d="M12 2v20"/>
+              <path d="M7 12a5 5 0 0 1 5 -5"/>
+              <path d="M12 17a5 5 0 0 0 5 -5"/>
             </svg>
             Diabetes
           </a>
 
           <a href="/hypertension" className="flex items-center py-2 px-4 text-sm text-[--black-soft] rounded-md hover:bg-white hover:shadow-sm transition-all">
             <svg className="mr-3 h-5 w-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="8 14 12 10 16 14"></polyline>
+              <path d="M19.5 13.6v-1.9"/>
+              <path d="M9.1 9.1H14"/>
+              <path d="M7 11.4a3 3 0 0 1 0-4.3"/>
+              <path d="M2 14a6 6 0 0 1 3-10"/>
+              <circle cx="12" cy="14" r="8"/>
+              <path d="m16 16-3-3v-6"/>
             </svg>
             Hipertensión
           </a>
