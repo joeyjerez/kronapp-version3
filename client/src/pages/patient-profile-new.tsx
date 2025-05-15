@@ -863,6 +863,12 @@ export default function PatientProfileNew() {
                           dot={{ r: 3, stroke: 'var(--blue-main)', fill: 'white' }}
                           activeDot={{ r: 4, stroke: 'var(--blue-main)', fill: 'white' }}
                         />
+                        <Legend 
+                          verticalAlign="top" 
+                          align="right"
+                          wrapperStyle={{ fontSize: '10px', paddingBottom: '10px' }} 
+                          formatter={(value) => value === 'systolic' ? 'Sistólica' : 'Diastólica'} 
+                        />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
