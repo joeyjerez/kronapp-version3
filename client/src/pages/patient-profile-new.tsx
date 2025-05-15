@@ -896,16 +896,20 @@ export default function PatientProfileNew() {
                     </div>
                   </div>
                   
-                  {/* Mini gráfico de tendencia */}
-                  <div className="h-12 w-full bg-white rounded mb-3 p-2 border border-[--blue-light]">
-                    <div className="flex items-end justify-between h-full space-x-1">
-                      <div className="w-1/7 h-[70%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[65%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[60%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[55%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[50%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[45%] bg-[--green-success] rounded-t"></div>
-                      <div className="w-1/7 h-[40%] bg-[--green-success] rounded-t"></div>
+                  {/* Peso actual */}
+                  <div className="h-32 w-full bg-white rounded mb-3 p-4 border border-[--blue-light] flex flex-col justify-center items-center">
+                    <div className="text-4xl font-bold text-[--black-soft] mb-2">
+                      {patientData.weight} kg
+                    </div>
+                    <div className="text-sm text-[--gray-medium] flex items-center">
+                      <span className="flex items-center text-[--green-success]">
+                        <svg className="h-4 w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m18 15-6-6-6 6"/>
+                        </svg>
+                        Disminuyendo
+                      </span>
+                      <span className="mx-1">•</span>
+                      <span>Última medición: Hoy</span>
                     </div>
                   </div>
                   
