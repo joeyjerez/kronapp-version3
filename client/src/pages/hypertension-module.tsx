@@ -274,6 +274,119 @@ export default function HypertensionModule() {
       {/* Contenido principal */}
       <div className="flex-1 p-4 md:p-6 bg-[--gray-light]">
         <div className="max-w-4xl mx-auto">
+          <header className="mb-6">
+            <div className="flex items-center mb-4">
+              {/* Área izquierda para el botón de hamburguesa en móvil */}
+              <div className="flex-1 flex justify-start">
+                {isMobile && showMenuButton && (
+                  <button 
+                    className="p-2 bg-[--blue-main] rounded-md text-white shadow-md transition-opacity duration-300"
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                  >
+                    <svg 
+                      className="h-6 w-6" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      {sidebarOpen ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                      )}
+                    </svg>
+                  </button>
+                )}
+              </div>
+              
+              {/* Área derecha para notificaciones y perfil - siempre alineada a la derecha */}
+              <div className="flex justify-end items-center space-x-2 md:space-x-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="focus:outline-none">
+                    <div className="flex items-center cursor-pointer hover:bg-[--blue-light]/20 p-2 rounded-lg transition-colors">
+                      <div className="relative">
+                        <svg className="h-6 w-6 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-[--red-alert]"></span>
+                      </div>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-64 mt-1 shadow-lg">
+                    <DropdownMenuLabel className="text-[--blue-main] flex justify-between items-center">
+                      <span>Notificaciones</span>
+                      <span className="bg-[--red-alert] text-white text-xs px-1.5 py-0.5 rounded-full">2</span>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <div className="max-h-64 overflow-y-auto">
+                      <DropdownMenuItem className="cursor-pointer p-3 hover:bg-[--blue-light]/10">
+                        <div className="space-y-1">
+                          <div className="flex justify-between items-start">
+                            <span className="font-medium text-[--black-soft] text-sm">Resultado de análisis listo</span>
+                            <span className="text-xs text-[--gray-medium]">Hoy</span>
+                          </div>
+                          <p className="text-xs text-[--gray-medium]">Su resultado de análisis de glucosa está disponible para revisar.</p>
+                        </div>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem className="cursor-pointer p-3 hover:bg-[--blue-light]/10">
+                        <div className="space-y-1">
+                          <div className="flex justify-between items-start">
+                            <span className="font-medium text-[--black-soft] text-sm">Recordatorio de cita</span>
+                            <span className="text-xs text-[--gray-medium]">Ayer</span>
+                          </div>
+                          <p className="text-xs text-[--gray-medium]">Tiene una consulta de seguimiento programada para mañana a las 10:00 AM.</p>
+                        </div>
+                      </DropdownMenuItem>
+                    </div>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="cursor-pointer flex justify-center text-[--blue-main] text-sm hover:bg-[--blue-light]/10">
+                      Ver todas las notificaciones
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="focus:outline-none">
+                    <div className="flex items-center gap-2 cursor-pointer hover:bg-[--blue-light]/20 p-2 rounded-lg transition-colors">
+                      <div className="h-8 w-8 rounded-full bg-[--blue-main] flex items-center justify-center text-white font-medium shadow-sm">
+                        J
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-medium text-[--black-soft]">José Ponce A</span>
+                        <span className="text-xs text-[--gray-medium]">Paciente</span>
+                      </div>
+                      <svg className="h-4 w-4 text-[--gray-medium]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56 mt-1 shadow-lg">
+                    <div className="px-4 py-3 border-b border-gray-100">
+                      <p className="text-sm font-medium text-[--black-soft]">José Ponce Ávila</p>
+                      <p className="text-xs text-[--gray-medium] mt-1">joseponce@email.com</p>
+                    </div>
+                    <DropdownMenuItem className="cursor-pointer px-4 py-2 hover:bg-[--blue-light]/10">
+                      <svg className="mr-2 h-4 w-4 text-[--gray-medium]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                      </svg>
+                      <span className="text-sm">Editar perfil</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="cursor-pointer px-4 py-2 text-[--red-alert] hover:bg-red-50">
+                      <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                      </svg>
+                      <span className="text-sm">Cerrar sesión</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </div>
+          </header>
           <h1 className="text-2xl font-bold mb-6 text-[--blue-main]">Módulo en proceso</h1>
 
           <Card className="mb-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
