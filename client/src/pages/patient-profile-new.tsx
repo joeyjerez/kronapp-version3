@@ -516,16 +516,6 @@ export default function PatientProfileNew() {
                 </CardContent>
               </Card>
             </div>
-
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <Button 
-                className="bg-[--blue-main] hover:bg-[--blue-main]/90 text-white border-none shadow-sm"
-                onClick={() => setShowEditProfileDialog(true)}
-              >
-                Editar perfil
-              </Button>
-              <Button className="bg-white hover:bg-[--blue-light] text-[--blue-main] border border-[--blue-main]/30 shadow-sm">Formulario</Button>
-            </div>
           </div>
           
           {/* Dashboard de salud */}
