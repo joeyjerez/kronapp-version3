@@ -832,7 +832,7 @@ export default function PatientProfileNew() {
                         />
                         <Tooltip
                           formatter={(value: number, name: string) => {
-                            return [`${value} mmHg`, name === 'systolic' ? 'Sistólica' : 'Diastólica'];
+                            return [`${value} mmHg`, name === 'sistolica' ? 'Sistólica' : name === 'diastolica' ? 'Diastólica' : name];
                           }}
                           labelFormatter={(label) => `${label}`}
                           contentStyle={{
