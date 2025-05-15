@@ -671,7 +671,7 @@ export default function PatientProfileNew() {
                         />
                         <Tooltip
                           formatter={(value: number, name: string) => {
-                            return [`${value} mmHg`, name === 'systolic' ? 'Sistólica' : 'Diastólica'];
+                            return [`${value} mmHg`, name === 'sistolica' ? 'Sistólica' : name === 'diastolica' ? 'Diastólica' : name];
                           }}
                           labelFormatter={(label) => `${label}`}
                           contentStyle={{
@@ -687,7 +687,7 @@ export default function PatientProfileNew() {
                         <Line 
                           type="monotone" 
                           dataKey="systolic" 
-                          name="Sistólica"
+                          name="sistolica"
                           stroke="var(--red-alert)" 
                           strokeWidth={2}
                           dot={{ r: 4, stroke: 'var(--red-alert)', fill: 'white' }}
@@ -696,7 +696,7 @@ export default function PatientProfileNew() {
                         <Line 
                           type="monotone" 
                           dataKey="diastolic" 
-                          name="Diastólica"
+                          name="diastolica"
                           stroke="var(--blue-main)" 
                           strokeWidth={2}
                           dot={{ r: 4, stroke: 'var(--blue-main)', fill: 'white' }}
@@ -707,7 +707,7 @@ export default function PatientProfileNew() {
                           verticalAlign="top" 
                           align="right"
                           wrapperStyle={{ fontSize: '10px', paddingBottom: '10px' }} 
-                          formatter={(value) => value === 'systolic' ? 'Sistólica' : 'Diastólica'} 
+                          formatter={(value) => value === 'sistolica' ? 'Sistólica' : value === 'diastolica' ? 'Diastólica' : value} 
                         />
                       </LineChart>
                     </ResponsiveContainer>
@@ -848,7 +848,7 @@ export default function PatientProfileNew() {
                         <Line 
                           type="monotone" 
                           dataKey="systolic" 
-                          name="Sistólica"
+                          name="sistolica"
                           stroke="var(--red-alert)" 
                           strokeWidth={2}
                           dot={{ r: 3, stroke: 'var(--red-alert)', fill: 'white' }}
@@ -857,7 +857,7 @@ export default function PatientProfileNew() {
                         <Line 
                           type="monotone" 
                           dataKey="diastolic" 
-                          name="Diastólica"
+                          name="diastolica"
                           stroke="var(--blue-main)" 
                           strokeWidth={2}
                           dot={{ r: 3, stroke: 'var(--blue-main)', fill: 'white' }}
@@ -867,7 +867,7 @@ export default function PatientProfileNew() {
                           verticalAlign="top" 
                           align="right"
                           wrapperStyle={{ fontSize: '10px', paddingBottom: '10px' }} 
-                          formatter={(value) => value === 'systolic' ? 'Sistólica' : 'Diastólica'} 
+                          formatter={(value) => value === 'sistolica' ? 'Sistólica' : value === 'diastolica' ? 'Diastólica' : value} 
                         />
                       </LineChart>
                     </ResponsiveContainer>
