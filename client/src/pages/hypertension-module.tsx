@@ -517,51 +517,52 @@ export default function HypertensionModule() {
                   Agregar medición
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] border border-[--blue-light] shadow-lg">
-                <DialogHeader>
+              <DialogContent className="sm:max-w-[425px] border border-[--blue-light] shadow-lg w-[95vw] max-w-[95vw] sm:w-auto sm:max-w-[425px] p-4 sm:p-6">
+                <DialogHeader className="mb-2 sm:mb-4">
                   <DialogTitle className="text-[--blue-main] text-xl">Agregar medición</DialogTitle>
+                  <DialogDescription className="sr-only">Formulario para agregar una nueva medición de presión arterial</DialogDescription>
                 </DialogHeader>
 
                 {/* Datos basales */}
-                <div className="bg-[--blue-light]/20 rounded-md p-4 mb-4">
+                <div className="bg-[--blue-light]/20 rounded-md p-3 sm:p-4 mb-3 sm:mb-4 text-sm sm:text-base">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-[--blue-main] flex items-center justify-center text-white">
-                      <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[--blue-main] flex items-center justify-center text-white flex-shrink-0">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M12 16v-4"/>
                         <path d="M12 8h.01"/>
                       </svg>
                     </div>
-                    <span className="text-[--blue-main] text-base">Esta medición se guardara con tus datos basales <strong>actuales</strong></span>
+                    <span className="text-[--blue-main] text-sm sm:text-base flex-1">Esta medición se guardara con tus datos basales <strong>actuales</strong></span>
                   </div>
                   
                   {showBasalData && (
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="12" cy="12" r="10"/>
                             <line x1="8" y1="12" x2="16" y2="12"/>
                           </svg>
                         </div>
-                        <span>Peso: {basalData.weight} kg</span>
+                        <span className="text-sm">Peso: {basalData.weight} kg</span>
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M12 20v-6"/>
                             <path d="M8 10v6"/>
                             <path d="M16 10v6"/>
                             <path d="M8 10a4 4 0 0 1 8 0"/>
                           </svg>
                         </div>
-                        <span>Estatura: {basalData.height} cm</span>
+                        <span className="text-sm">Estatura: {basalData.height} cm</span>
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 10h.01"/>
                             <path d="M8 10h.01"/>
                             <path d="M18 5h.01"/>
@@ -572,7 +573,7 @@ export default function HypertensionModule() {
                             <path d="M21 16v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1"/>
                           </svg>
                         </div>
-                        <span>Fumador: {basalData.isSmoker ? 'Sí' : 'No'}</span>
+                        <span className="text-sm">Fumador: {basalData.isSmoker ? 'Sí' : 'No'}</span>
                       </div>
                     </div>
                   )}
@@ -580,7 +581,7 @@ export default function HypertensionModule() {
                   <div className="flex justify-end mt-2">
                     <Button 
                       onClick={() => setShowBasalData(!showBasalData)}
-                      className="bg-transparent text-[--blue-main] hover:bg-[--blue-light]/50 p-0"
+                      className="bg-transparent text-[--blue-main] hover:bg-[--blue-light]/50 p-0 text-xs sm:text-sm"
                     >
                       {showBasalData ? "Ocultar estos datos" : "Mostrar estos datos"}
                     </Button>
@@ -588,43 +589,45 @@ export default function HypertensionModule() {
                 </div>
                 
                 {/* Campos de presión arterial */}
-                <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <Input
                     id="systolic"
                     type="number"
+                    inputMode="decimal"
                     value={systolicValue}
                     onChange={(e) => setSystolicValue(e.target.value)}
-                    className="border-[--blue-light] focus-visible:ring-[--blue-main]"
+                    className="border-[--blue-light] focus-visible:ring-[--blue-main] text-base"
                     placeholder="Sistólica (mmHg)"
                   />
                   <Input
                     id="diastolic"
                     type="number"
+                    inputMode="decimal"
                     value={diastolicValue}
                     onChange={(e) => setDiastolicValue(e.target.value)}
-                    className="border-[--blue-light] focus-visible:ring-[--blue-main]"
+                    className="border-[--blue-light] focus-visible:ring-[--blue-main] text-base"
                     placeholder="Diastólica (mmHg)"
                   />
                 </div>
                 
                 {/* Posición del brazo */}
-                <div className="mb-4">
-                  <Label htmlFor="arm-position" className="font-medium block mb-2">
+                <div className="mb-3 sm:mb-4">
+                  <Label htmlFor="arm-position" className="font-medium block mb-1.5 sm:mb-2 text-sm sm:text-base">
                     Posicion del brazo
                   </Label>
                   <RadioGroup 
                     id="arm-position" 
                     value={armPosition}
                     onValueChange={setArmPosition}
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-1.5 sm:gap-2"
                   >
-                    <div className={`flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-full ${armPosition === 'brazo_derecho' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
-                      <svg className="w-5 h-5 text-[--blue-main]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-blue-50 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${armPosition === 'brazo_derecho' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[--blue-main]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12L10 17L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       <Label
                         htmlFor="brazo_derecho"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Brazo derecho
                       </Label>
@@ -635,10 +638,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${armPosition === 'brazo_izquierdo' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${armPosition === 'brazo_izquierdo' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="brazo_izquierdo"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Brazo izquierdo
                       </Label>
@@ -649,10 +652,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${armPosition === 'muneca_derecha' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${armPosition === 'muneca_derecha' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="muneca_derecha"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Muñeca derecha
                       </Label>
@@ -663,10 +666,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${armPosition === 'muneca_izquierda' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${armPosition === 'muneca_izquierda' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="muneca_izquierda"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Muñeca izquierda
                       </Label>
@@ -677,10 +680,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${armPosition === 'otro_arm' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${armPosition === 'otro_arm' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="otro_arm"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Otro
                       </Label>
@@ -694,23 +697,23 @@ export default function HypertensionModule() {
                 </div>
                 
                 {/* Posición del cuerpo */}
-                <div className="mb-4">
-                  <Label htmlFor="body-position" className="font-medium block mb-2">
+                <div className="mb-3 sm:mb-4">
+                  <Label htmlFor="body-position" className="font-medium block mb-1.5 sm:mb-2 text-sm sm:text-base">
                     Posicion del cuerpo
                   </Label>
                   <RadioGroup 
                     id="body-position" 
                     value={bodyPosition}
                     onValueChange={setBodyPosition}
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-1.5 sm:gap-2"
                   >
-                    <div className={`flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-full ${bodyPosition === 'sentado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
-                      <svg className="w-5 h-5 text-[--blue-main]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-blue-50 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${bodyPosition === 'sentado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[--blue-main]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12L10 17L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       <Label
                         htmlFor="sentado"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Sentado
                       </Label>
@@ -721,10 +724,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${bodyPosition === 'de_pie' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${bodyPosition === 'de_pie' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="de_pie"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         De pie
                       </Label>
@@ -735,10 +738,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${bodyPosition === 'acostado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${bodyPosition === 'acostado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="acostado"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Acostado
                       </Label>
@@ -749,10 +752,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${bodyPosition === 'reclinado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${bodyPosition === 'reclinado' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="reclinado"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Reclinado
                       </Label>
@@ -763,10 +766,10 @@ export default function HypertensionModule() {
                       />
                     </div>
                     
-                    <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${bodyPosition === 'otro_body' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                    <div className={`flex items-center space-x-1 sm:space-x-2 bg-gray-100 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full ${bodyPosition === 'otro_body' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
                       <Label
                         htmlFor="otro_body"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        className="text-xs sm:text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                       >
                         Otro
                       </Label>
@@ -780,37 +783,38 @@ export default function HypertensionModule() {
                 </div>
                 
                 {/* Selector de fecha/hora */}
-                <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-md bg-white mb-4">
+                <div className="flex items-center space-x-2 p-2 sm:p-3 border border-gray-200 rounded-md bg-white mb-3 sm:mb-4">
                   <Checkbox 
                     id="use-current-date" 
                     checked={useCurrentDate}
                     onCheckedChange={(checked) => setUseCurrentDate(checked === true)}
-                    className="border-[--blue-main] data-[state=checked]:bg-[--blue-main]"
+                    className="border-[--blue-main] data-[state=checked]:bg-[--blue-main] h-3.5 w-3.5 sm:h-4 sm:w-4"
                   />
-                  <div className="grid gap-1.5 leading-none">
+                  <div className="grid gap-1 leading-none flex-1">
                     <Label
                       htmlFor="use-current-date"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      className="text-xs sm:text-sm font-medium leading-tight peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Usar fecha y hora actual ({format(new Date(), "dd/MM/yyyy, HH:mm:ss")})
+                      Usar fecha y hora actual<br className="sm:hidden" />{" "}
+                      <span className="block sm:inline text-xs text-gray-500">({format(new Date(), "dd/MM/yyyy, HH:mm")})</span>
                     </Label>
                   </div>
                 </div>
                 
-                <DialogFooter className="flex justify-between sm:justify-end gap-3 mt-2">
+                <DialogFooter className="flex justify-between sm:justify-end gap-2 sm:gap-3 mt-2">
                   <Button 
                     variant="outline"
                     onClick={() => setShowAddDialog(false)}
-                    className="bg-[--red-alert]/10 hover:bg-[--red-alert]/20 border-[--red-alert]/30 text-[--red-alert] hover:text-[--red-alert]"
+                    className="bg-[--red-alert]/10 hover:bg-[--red-alert]/20 border-[--red-alert]/30 text-[--red-alert] hover:text-[--red-alert] text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
                   >
                     Cancelar
                   </Button>
                   <Button 
                     type="submit" 
                     onClick={addPressureReading}
-                    className="bg-[--green-success] hover:bg-[--green-success]/90 text-white"
+                    className="bg-[--green-success] hover:bg-[--green-success]/90 text-white text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
                   >
-                    <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 7 9 19l-5.5-5.5"/>
                     </svg>
                     Guardar
