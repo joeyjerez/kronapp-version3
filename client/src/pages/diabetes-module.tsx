@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { format, addDays, subDays, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
 import {
@@ -47,6 +49,16 @@ export default function DiabetesModule() {
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [glucoseValue, setGlucoseValue] = useState("");
   const [glucoseReadings, setGlucoseReadings] = useState<{value: number, date: Date}[]>(mockGlucoseData);
+  const [measurementTime, setMeasurementTime] = useState("en_ayunas");
+  const [useCurrentDate, setUseCurrentDate] = useState(true);
+  const [showBasalData, setShowBasalData] = useState(true);
+  
+  // Datos basales del paciente (simulados)
+  const basalData = {
+    weight: 100,
+    height: 188,
+    isSmoker: false
+  };
 
   const dateRangeText = `${format(startDate, "d 'de' MMMM", { locale: es })} al ${format(endDate, "d 'de' MMMM", { locale: es })}`;
 
@@ -113,9 +125,20 @@ export default function DiabetesModule() {
   const addGlucoseReading = () => {
     const value = parseFloat(glucoseValue);
     if (!isNaN(value)) {
-      setGlucoseReadings([...glucoseReadings, { value, date: new Date() }]);
+      // Añadir nueva medición con la fecha actual o personalizada
+      const newReading = { 
+        value, 
+        date: new Date(),
+        measurementTime: measurementTime
+      };
+      
+      setGlucoseReadings([...glucoseReadings, newReading]);
       setGlucoseValue("");
       setShowAddDialog(false);
+      
+      // Restablecer valores por defecto para la próxima medición
+      setMeasurementTime("en_ayunas");
+      setUseCurrentDate(true);
     }
   };
 
@@ -455,32 +478,204 @@ export default function DiabetesModule() {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] border border-[--blue-light] shadow-lg">
                 <DialogHeader>
-                  <DialogTitle className="text-[--blue-main] text-xl">Agregar medición de glucosa</DialogTitle>
-                  <DialogDescription className="text-[--gray-medium]">
-                    Introduce tu nivel de azúcar en la sangre en mg/dL.
-                  </DialogDescription>
+                  <DialogTitle className="text-[--blue-main] text-xl">Agregar nueva medición</DialogTitle>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="glucose" className="text-right text-[--black-soft]">
-                      Valor
-                    </Label>
-                    <Input
-                      id="glucose"
-                      type="number"
-                      value={glucoseValue}
-                      onChange={(e) => setGlucoseValue(e.target.value)}
-                      className="col-span-3 border-[--blue-light] focus-visible:ring-[--blue-main]"
-                      placeholder="Ej. 120"
+
+                {/* Datos basales */}
+                {showBasalData && (
+                  <div className="bg-[--blue-light]/20 rounded-md p-4 mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-6 h-6 rounded-full bg-[--blue-main] flex items-center justify-center text-white">
+                        <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 16v-4"/>
+                          <path d="M12 8h.01"/>
+                        </svg>
+                      </div>
+                      <span className="text-[--blue-main] text-base">Esta medición se guardara con tus datos basales <strong>actuales</strong></span>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 flex items-center justify-center">
+                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="8" y1="12" x2="16" y2="12"/>
+                          </svg>
+                        </div>
+                        <span>Peso: {basalData.weight} kg</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 flex items-center justify-center">
+                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 20v-6"/>
+                            <path d="M8 10v6"/>
+                            <path d="M16 10v6"/>
+                            <path d="M8 10a4 4 0 0 1 8 0"/>
+                          </svg>
+                        </div>
+                        <span>Estatura: {basalData.height} cm</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 flex items-center justify-center">
+                          <svg className="w-5 h-5 text-[--blue-main]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 10h.01"/>
+                            <path d="M8 10h.01"/>
+                            <path d="M18 5h.01"/>
+                            <path d="M8 5h.01"/>
+                            <path d="M18 15h.01"/>
+                            <path d="M8 15h.01"/>
+                            <path d="M21 8V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1"/>
+                            <path d="M21 16v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1"/>
+                          </svg>
+                        </div>
+                        <span>Fumador: {basalData.isSmoker ? 'Sí' : 'No'}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-end mt-2">
+                      <Button 
+                        onClick={() => setShowBasalData(false)}
+                        className="bg-transparent text-[--blue-main] hover:bg-[--blue-light]/50 p-0"
+                      >
+                        Ocultar estos datos
+                      </Button>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Campo para ingresar valor de glucosa */}
+                <div className="space-y-4 py-2">
+                  <Input
+                    id="glucose"
+                    type="number"
+                    value={glucoseValue}
+                    onChange={(e) => setGlucoseValue(e.target.value)}
+                    className="border-[--blue-light] focus-visible:ring-[--blue-main]"
+                    placeholder="Medición (mg/dL)"
+                  />
+                  
+                  {/* Selector de horario */}
+                  <div className="space-y-2">
+                    <Label htmlFor="measurement-time" className="font-medium">Horario de medición</Label>
+                    <RadioGroup 
+                      id="measurement-time" 
+                      value={measurementTime}
+                      onValueChange={setMeasurementTime}
+                      className="flex flex-wrap gap-2"
+                    >
+                      <div className={`flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-full ${measurementTime === 'en_ayunas' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                        <svg className="w-5 h-5 text-[--blue-main]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5 12L10 17L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <Label
+                          htmlFor="en_ayunas"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          En ayunas
+                        </Label>
+                        <RadioGroupItem
+                          value="en_ayunas"
+                          id="en_ayunas"
+                          className="hidden"
+                        />
+                      </div>
+                      
+                      <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${measurementTime === 'despues_comer' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                        <Label
+                          htmlFor="despues_comer"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          Después de comer
+                        </Label>
+                        <RadioGroupItem
+                          value="despues_comer"
+                          id="despues_comer"
+                          className="hidden"
+                        />
+                      </div>
+                      
+                      <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${measurementTime === '2-3_horas' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                        <Label
+                          htmlFor="2-3_horas"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          2-3 horas después de comer
+                        </Label>
+                        <RadioGroupItem
+                          value="2-3_horas"
+                          id="2-3_horas"
+                          className="hidden"
+                        />
+                      </div>
+                      
+                      <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${measurementTime === 'antes_dormir' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                        <Label
+                          htmlFor="antes_dormir"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          Antes de acostarse
+                        </Label>
+                        <RadioGroupItem
+                          value="antes_dormir"
+                          id="antes_dormir"
+                          className="hidden"
+                        />
+                      </div>
+                      
+                      <div className={`flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full ${measurementTime === 'otro' ? 'border border-[--blue-main] bg-blue-100' : 'border border-transparent'}`}>
+                        <Label
+                          htmlFor="otro"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          Otro
+                        </Label>
+                        <RadioGroupItem
+                          value="otro"
+                          id="otro"
+                          className="hidden"
+                        />
+                      </div>
+                    </RadioGroup>
+                  </div>
+                  
+                  {/* Selector de fecha/hora */}
+                  <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-md bg-white">
+                    <Checkbox 
+                      id="use-current-date" 
+                      checked={useCurrentDate}
+                      onCheckedChange={(checked) => setUseCurrentDate(checked === true)}
+                      className="border-[--blue-main] data-[state=checked]:bg-[--blue-main]"
                     />
+                    <div className="grid gap-1.5 leading-none">
+                      <Label
+                        htmlFor="use-current-date"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Usar fecha y hora actual ({format(new Date(), "dd/MM/yyyy, HH:mm:ss")})
+                      </Label>
+                    </div>
                   </div>
                 </div>
-                <DialogFooter>
+                
+                <DialogFooter className="flex justify-between sm:justify-end gap-3 mt-2">
+                  <Button 
+                    variant="outline"
+                    onClick={() => setShowAddDialog(false)}
+                    className="bg-[--red-alert]/10 hover:bg-[--red-alert]/20 border-[--red-alert]/30 text-[--red-alert] hover:text-[--red-alert]"
+                  >
+                    Cancelar
+                  </Button>
                   <Button 
                     type="submit" 
                     onClick={addGlucoseReading}
-                    className="bg-[--blue-main] hover:bg-[--blue-main]/90 text-white"
+                    className="bg-[--green-success] hover:bg-[--green-success]/90 text-white"
                   >
+                    <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 7 9 19l-5.5-5.5"/>
+                    </svg>
                     Guardar
                   </Button>
                 </DialogFooter>
