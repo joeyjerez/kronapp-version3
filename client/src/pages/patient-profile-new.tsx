@@ -646,7 +646,7 @@ export default function PatientProfileNew() {
               
               <Card className="shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
                 <CardContent className="p-5">
-                  <h3 className="text-sm font-medium text-[--blue-main] mb-4">Gráfico semanal de Presión sanguínea</h3>
+                  <h3 className="text-sm font-medium text-[--blue-main] mb-4">Gráfico semanal de Presión arterial</h3>
                   
                   {/* Gráfico de presión arterial interactivo */}
                   <div className="h-48">
